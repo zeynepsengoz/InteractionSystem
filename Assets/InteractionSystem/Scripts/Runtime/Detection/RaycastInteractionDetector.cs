@@ -1,4 +1,4 @@
-// Assets/InteractionSystem/Scripts/Runtime/Detection/RaycastInteractionDetector.cs
+
 using UnityEngine;
 using InteractionSystem.Scripts.Runtime.Core;
 

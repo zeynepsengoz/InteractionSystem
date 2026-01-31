@@ -46,8 +46,11 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.38f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\InteractionSystem\Scripts\Runtime\Detection\RaycastInteractionDetector.cs" />
+    <Compile Include="Assets\InteractionSystem\Scripts\Runtime\Player\PlayerInteractor.cs" />
     <Compile Include="Assets\InteractionSystem\Scripts\Runtime\Core\InteractableBase.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\InteractionSystem\Scripts\Runtime\Interactables 1\SimpleInteractable.cs" />
     <Compile Include="Assets\InteractionSystem\Scripts\Runtime\Core\IInteractable.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\6000.0.38f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
