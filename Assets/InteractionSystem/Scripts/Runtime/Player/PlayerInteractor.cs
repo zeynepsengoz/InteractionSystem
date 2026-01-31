@@ -1,35 +1,41 @@
-using UnityEngine;
 using InteractionSystem.Scripts.Runtime.Core;
-using InteractionSystem.Scripts.Runtime.Detection;
+using UnityEngine;
 
-namespace InteractionSystem.Scripts.Runtime.Player
-{
+
     public class PlayerInteractor : MonoBehaviour
     {
-        [SerializeField] private RaycastInteractionDetector m_Detector;
+        [SerializeField] private LayerMask m_InteractLayer;
+        [SerializeField] private float m_InteractRadius = 1.5f;
         [SerializeField] private KeyCode m_InteractKey = KeyCode.E;
 
-        private IInteractable m_CurrentTarget;
-
-        private void Update()
+        void Update()
         {
-            if (m_Detector == null) return;
-
-            var target = m_Detector.Detect();
-
-            if (target != m_CurrentTarget)
+            if (Input.GetKeyDown(m_InteractKey))
             {
-                if (m_CurrentTarget != null) m_CurrentTarget.OnFocusExit();
+                Collider hit = Physics.OverlapSphere(
+                    transform.position,
+                    m_InteractRadius,
+                    m_InteractLayer
+                )[0];
 
-                m_CurrentTarget = target;
+                if (hit != null)
+                {
+                    Debug.Log("Hit: " + hit.name);
+                    IInteractable interactable = hit.GetComponent<IInteractable>();
 
-                if (m_CurrentTarget != null) m_CurrentTarget.OnFocusEnter();
-            }
-
-            if (Input.GetKeyDown(m_InteractKey) && m_CurrentTarget != null && m_CurrentTarget.CanInteract(gameObject))
-            {
-                m_CurrentTarget.Interact(gameObject);
+                    if (interactable != null)
+                    {
+                        Debug.Log("Interact Bulundu");
+                        interactable.InteractLogic();
+                    }
+                }
             }
         }
+        
+        
+        
+        
+        
+        
+        
     }
-}
