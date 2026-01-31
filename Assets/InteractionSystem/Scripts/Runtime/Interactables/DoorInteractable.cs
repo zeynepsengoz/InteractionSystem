@@ -17,3 +17,4 @@ using InteractionSystem.Scripts.Runtime.Core;
             Debug.Log("Kapı Açıldı");
         }
     }
+// Door interact logic
